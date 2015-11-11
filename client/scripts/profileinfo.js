@@ -1,5 +1,3 @@
-my
-
 myApp.directive('profileInfo',
     function(){
         return {
