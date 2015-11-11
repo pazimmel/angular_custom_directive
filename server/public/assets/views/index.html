@@ -13,6 +13,18 @@
     <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
 </head>
 <body>
-    <h1>ZETA!</h1>
+    <div class="container">
+
+        <h1>ZETA!</h1>
+        <div ng-controller="WelcomeController">
+            <p>{{info.message}}</p>
+            <button ng-click="changeMessage()">Click Me</button>
+
+            <div ng-repeat="person in people | orderBy : '-rank' | limitTo : 2 ">
+                <profile-info info="person"></profile-info>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
