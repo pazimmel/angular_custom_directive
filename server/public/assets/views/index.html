@@ -8,23 +8,22 @@
     <link rel="stylesheet" href="/vendors/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/styles/style.css">
 
-    <!--SCRIPTS-->
-    <script type="text/javascript" src="/vendors/angular.min.js"></script>
-    <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+
 </head>
 <body>
-    <div class="container">
 
-        <h1>ZETA!</h1>
-        <div ng-controller="WelcomeController">
-            <p>{{info.message}}</p>
-            <button ng-click="changeMessage()">Click Me</button>
+    <div ng-include="'/assets/views/templates/header.html'"></div>
+         <!-- don't do <ng-include> on it's own-->
+<!--the main tag should be hte main content of hte page so there should only be one-->
+    <nav ng-include = "'/assets/views/templates/nav.html'"></nav>
+    <main ng-view></main>
+    <footer ng-include="'/assets/views/templates/footer.html'"></footer>
 
-            <div ng-repeat="person in people | orderBy : '-rank' | limitTo : 2 ">
-                <profile-info info="person"></profile-info>
-            </div>
-        </div>
 
-    </div>
+    <!--SCRIPTS-->
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular-route.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/controllers.min.js"></script>
 </body>
 </html>

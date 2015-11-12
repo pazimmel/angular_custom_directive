@@ -5,9 +5,13 @@ module.exports = function(grunt){
             options: {
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
-            build: {
+            app: {
                 src: 'client/scripts/*.js',
                 dest: 'server/public/assets/scripts/app.min.js'
+            },
+            controller:{
+                src: 'client/scripts/controllers/*.js',
+                dest: 'server/public/assets/scripts/controllers.min.js'
             }
 
         },
@@ -29,14 +33,32 @@ module.exports = function(grunt){
                 ],
                 "dest": "server/public/vendors/"
             },
+            angularRoute: {
+                expand: true,
+                cwd: 'node_modules/angular-route',
+                src: [
+                    "angular-route.min.js",
+                    "angular-route.min.js.map"
+                ],
+                "dest": "server/public/vendors/"
+            },
             html: {
                 expand: true,
                 cwd: 'client/views/',
                 src: [
+                    "*",
+                    "*/*"
+                ],
+                "dest": "server/public/assets/views/"
+            },
+            htmlRoutes: {
+                expand: true,
+                cwd: 'client/views/routes',
+                src: [
                     "*.html"
 
                 ],
-                "dest": "server/public/assets/views/"
+                "dest": "server/public/assets/views/routes/"
             },
             style: {
                 expand: true,
